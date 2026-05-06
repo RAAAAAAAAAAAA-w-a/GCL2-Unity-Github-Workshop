@@ -406,7 +406,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jumpSpeed: 0
-  moveSpeed: 0
+  moveSpeed: 3
   rb: {fileID: 0}
   groundCheck: {fileID: 0}
   groundCheckRadius: 0
