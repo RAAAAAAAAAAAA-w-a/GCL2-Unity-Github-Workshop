@@ -269,6 +269,7 @@ GameObject:
   - component: {fileID: 1174956320}
   - component: {fileID: 1174956319}
   - component: {fileID: 1174956321}
+  - component: {fileID: 1174956322}
   m_Layer: 0
   m_Name: AnimationSheet_Character_0
   m_TagString: Player
@@ -392,6 +393,32 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.18, y: 0.3}
   m_EdgeRadius: 0
+--- !u!114 &1174956322
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1174956318}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1aa36fbb24e2a84f8870cda2a7fc322, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jumpSpeed: 0
+  moveSpeed: 0
+  rb: {fileID: 0}
+  groundCheck: {fileID: 0}
+  groundCheckRadius: 0
+  realGround:
+    serializedVersion: 2
+    m_Bits: 0
+  isGrounded: 0
+  canMove: 1
+  respawnPosition: {x: 0, y: 0, z: 0}
+  theLevelManager: {fileID: 0}
+  knockbackForce: 0
+  knockbackLength: 0
 --- !u!1 &1204531049
 GameObject:
   m_ObjectHideFlags: 0
