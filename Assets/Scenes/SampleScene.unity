@@ -271,7 +271,7 @@ GameObject:
   - component: {fileID: 1174956321}
   - component: {fileID: 1174956322}
   m_Layer: 0
-  m_Name: AnimationSheet_Character_0
+  m_Name: Character
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -431,7 +431,7 @@ GameObject:
   - component: {fileID: 1204531051}
   - component: {fileID: 1204531050}
   m_Layer: 0
-  m_Name: kucing-scuba-scuba-cat_0
+  m_Name: Cat Object
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -617,7 +617,7 @@ GameObject:
   - component: {fileID: 1968437481}
   - component: {fileID: 1968437480}
   m_Layer: 0
-  m_Name: Paper Background_0
+  m_Name: Paper Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
