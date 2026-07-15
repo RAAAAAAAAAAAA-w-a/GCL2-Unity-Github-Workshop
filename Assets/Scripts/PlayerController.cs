@@ -6,9 +6,9 @@ public class PlayerController : MonoBehaviour
 {
     [Header("Movement Settings")]
     [SerializeField] private float moveSpeed = 5f;
-    [SerializeField] private float jumpForce = 10f;
+    [SerializeField] public float jumpForce = 10f;
     [SerializeField] private float climbSpeed = 3f;
-
+    [SerializeField] public float jumpBoost = 1.5f;
 
     [Header("Ground Check")]
     [SerializeField] private LayerMask groundLayer;
@@ -54,25 +54,13 @@ public class PlayerController : MonoBehaviour
         respawnPosition = transform.position;
     }
 
-
     void Update()
     {
-        isGrounded = Physics2D.OverlapCircle(
-    groundCheck.position,
-    groundCheckRadius,
-    groundLayer
-);
         if (isGrounded) 
         {
             // Horizontal movement
             float moveInput = Input.GetAxisRaw("Horizontal");
             rb.linearVelocity = new Vector2(moveInput * moveSpeed, rb.linearVelocity.y);
-
-        }
-
-        if (isGrounded)
-        {
-            isJumping = false;
         }
 
         if (canClimb)
@@ -171,4 +159,11 @@ public class PlayerController : MonoBehaviour
     {
         return respawnPosition;
     }
+
+    
+
+    
+
+
+
 }

@@ -4,16 +4,15 @@
 TagManager:
   serializedVersion: 3
   tags:
-  - GoRight
-  - GoLeft
+  - JumpFeature
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Player
+  - 
   - Water
   - UI
-  - groundLayer
+  - Ground
   - 
   - 
   - 
