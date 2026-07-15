@@ -1872,6 +1872,50 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Untitled_4
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 225
+        width: 40
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 09c51132304552449acd0ac25549dde1
+      internalID: 1352492499
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Untitled_5
+      rect:
+        serializedVersion: 2
+        x: 177
+        y: 129
+        width: 40
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4050f7a8480870b4db7f51eeb91c1af5
+      internalID: 1957651186
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
@@ -1919,6 +1963,7 @@ TextureImporter:
       Untitled_37: 21300058
       Untitled_38: 21300060
       Untitled_39: 21300062
+      Untitled_4: 1352492499
       Untitled_40: 21300064
       Untitled_41: 21300066
       Untitled_42: 21300068
@@ -1928,6 +1973,7 @@ TextureImporter:
       Untitled_46: 21300076
       Untitled_47: 21300078
       Untitled_49: 21300080
+      Untitled_5: 1957651186
       Untitled_50: 21300082
       Untitled_53: 21300084
       Untitled_54: 21300086
