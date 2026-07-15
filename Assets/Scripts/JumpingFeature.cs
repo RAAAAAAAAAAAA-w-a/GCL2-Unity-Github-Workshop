@@ -20,10 +20,11 @@ public class JumpingFeature : MonoBehaviour
 
     void jumpFeature()
     {
-        
+
         rb.linearVelocity = new Vector2(rb.linearVelocity.x, player.jumpForce * player.jumpBoost);
     }
-
+}
+    /*
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("JumpFeature"))
@@ -34,7 +35,7 @@ public class JumpingFeature : MonoBehaviour
 
         }
     }
-
+    /*
     public class Jump
     {
 
@@ -69,3 +70,4 @@ public class JumpingFeature : MonoBehaviour
         
         }
 }
+   */
