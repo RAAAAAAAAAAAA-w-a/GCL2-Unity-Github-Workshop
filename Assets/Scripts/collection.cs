@@ -2,13 +2,11 @@ using UnityEngine;
 
 public class collection : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-  private void OnTriggerEnter2D(Collider2D other)
+  private void OnTriggerEnter2D(Collider2D other) //to collect object and back the object disappear afterwards
   { 
      if (other.CompareTag("Player"))
      {
             Destroy(this.gameObject);
-            print("triggered");
      }
   }
 }
