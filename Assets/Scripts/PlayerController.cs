@@ -56,32 +56,11 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-<<<<<<< Updated upstream
         if (isGrounded) 
-=======
-        isGrounded = Physics2D.OverlapCircle(
-    groundCheck.position,
-    groundCheckRadius,
-    groundLayer
-);
-        if (isGrounded)
->>>>>>> Stashed changes
         {
             // Horizontal movement
             moveInput = Input.GetAxisRaw("Horizontal");
             rb.linearVelocity = new Vector2(moveInput * moveSpeed, rb.linearVelocity.y);
-<<<<<<< Updated upstream
-=======
-            print("IS FLOR");
-        } 
-                   
-
-        
-
-        if (isGrounded)
-        {
-            isJumping = false;
->>>>>>> Stashed changes
         }
 
         if (canClimb)
