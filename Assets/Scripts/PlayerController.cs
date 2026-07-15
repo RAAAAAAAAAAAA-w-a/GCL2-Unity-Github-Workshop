@@ -56,9 +56,19 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        // Horizontal movement
-        float moveInput = Input.GetAxisRaw("Horizontal");
-        rb.linearVelocity = new Vector2(moveInput * moveSpeed, rb.linearVelocity.y);
+        if (isGrounded) 
+        {
+            // Horizontal movement
+            float moveInput = Input.GetAxisRaw("Horizontal");
+            rb.linearVelocity = new Vector2(moveInput * moveSpeed, rb.linearVelocity.y);
+        }
+
+        if (canClimb)
+        {
+            float climbInput = Input.GetAxisRaw("Vertical");
+            rb.linearVelocity = new Vector2(rb.linearVelocity.x, climbInput * climbSpeed);
+        }
+
 
         // Flip sprite
         if (moveInput < 0)
@@ -67,10 +77,19 @@ public class PlayerController : MonoBehaviour
             transform.localScale = new Vector3(-1f, 1f, 1f);
 
 
+
         // Flip player sprite to movement direction
 
-        if (moveInput > 0 && !isFacingRight) Flip();
-        else if (moveInput < 0 && isFacingRight) Flip();
+        if (moveInput > 0 && !isFacingRight)
+        {
+            Flip();
+        }
+
+        else if (moveInput < 0 && isFacingRight)
+        {
+            Flip();
+        }
+
 
         // Jump
         if (Input.GetButtonDown("Jump") && isGrounded && !hammerTime.isHammerActive)
@@ -78,15 +97,7 @@ public class PlayerController : MonoBehaviour
             Jump();
         }
 
-        //climb
-        rb.linearVelocity = new Vector2(moveInput * moveSpeed, rb.linearVelocity.y);
 
-        // Vertical movement (only when on ladder)
-        if (canClimb && !hammerTime.isHammerActive)
-        {
-            float climbInput = Input.GetAxisRaw("Vertical");
-            rb.linearVelocity = new Vector2(rb.linearVelocity.x, climbInput * climbSpeed);
-        }
 
         UpdateAnimations();
 
@@ -117,15 +128,14 @@ public class PlayerController : MonoBehaviour
             canClimb = true;
 
         }
-    }
 
-    private void OnTriggerExit2D(Collider2D other)
-    {
-        if (other.CompareTag("Ladder"))
+        else
         {
+            print("NOT climbing");
             canClimb = false;
         }
     }
+
 
     private void Flip()
     {
