@@ -54,13 +54,25 @@ public class PlayerController : MonoBehaviour
         respawnPosition = transform.position;
     }
 
+
     void Update()
     {
+        isGrounded = Physics2D.OverlapCircle(
+    groundCheck.position,
+    groundCheckRadius,
+    groundLayer
+);
         if (isGrounded) 
         {
             // Horizontal movement
             float moveInput = Input.GetAxisRaw("Horizontal");
             rb.linearVelocity = new Vector2(moveInput * moveSpeed, rb.linearVelocity.y);
+
+        }
+
+        if (isGrounded)
+        {
+            isJumping = false;
         }
 
         if (canClimb)
