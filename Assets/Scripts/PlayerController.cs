@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float climbSpeed = 3f;
     [SerializeField] public float jumpBoost = 1.5f;
 
+
     [Header("Ground Check")]
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private Transform groundCheck;
@@ -21,9 +22,13 @@ public class PlayerController : MonoBehaviour
     // Public so other scripts can access it
     public Rigidbody2D rb { get; private set; }
 
+
+    public bool IsFacingRight => isFacingRight;
+
     private Animator anim;
     private AudioSource audioSource;
 
+    public bool canMove = true;
     private float moveInput;
     private bool isFacingRight = true;
     private bool isGrounded;
@@ -68,12 +73,11 @@ public class PlayerController : MonoBehaviour
             isJumping = false;
         }
         // Horizontal movement
-        moveInput = Input.GetAxisRaw("Horizontal");
-
-        Debug.Log("Input = " + moveInput);
-
-        rb.linearVelocity = new Vector2(moveInput * moveSpeed, rb.linearVelocity.y);
-
+        if (canMove)
+        {
+            moveInput = Input.GetAxisRaw("Horizontal");
+            rb.linearVelocity = new Vector2(moveInput * moveSpeed, rb.linearVelocity.y);
+        }
         Debug.Log("Velocity = " + rb.linearVelocity);
         Debug.Log("Grounded: " + isGrounded);
         if (canClimb)
