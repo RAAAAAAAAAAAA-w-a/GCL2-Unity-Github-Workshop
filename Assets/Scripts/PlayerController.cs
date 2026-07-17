@@ -55,20 +55,38 @@ public class PlayerController : MonoBehaviour
     }
 
     void Update()
-    {
-        if (isGrounded) 
-        {
-            // Horizontal movement
-            moveInput = Input.GetAxisRaw("Horizontal");
-            rb.linearVelocity = new Vector2(moveInput * moveSpeed, rb.linearVelocity.y);
-        }
+    {// Check if player is on the ground
+        isGrounded = Physics2D.OverlapCircle(
+            groundCheck.position,
+            groundCheckRadius,
+            groundLayer
+        );
 
+        // Reset jumping when landed
+        if (isGrounded)
+        {
+            isJumping = false;
+        }
+        // Horizontal movement
+        moveInput = Input.GetAxisRaw("Horizontal");
+
+        Debug.Log("Input = " + moveInput);
+
+        rb.linearVelocity = new Vector2(moveInput * moveSpeed, rb.linearVelocity.y);
+
+        Debug.Log("Velocity = " + rb.linearVelocity);
+        Debug.Log("Grounded: " + isGrounded);
         if (canClimb)
         {
-            float climbInput = Input.GetAxisRaw("Vertical");
-            rb.linearVelocity = new Vector2(rb.linearVelocity.x, climbInput * climbSpeed);
-        }
+            rb.gravityScale = 0;
 
+            float climbInput = Input.GetAxisRaw("Vertical");
+            rb.linearVelocity = new Vector2(moveInput * moveSpeed, climbInput * climbSpeed);
+        }
+        else
+        {
+            rb.gravityScale = 1;
+        }
 
         // Flip sprite
         if (moveInput < 0)
@@ -92,11 +110,12 @@ public class PlayerController : MonoBehaviour
 
 
         // Jump
-        if (Input.GetButtonDown("Jump") && isGrounded && !hammerTime.isHammerActive)
+        if (Input.GetButtonDown("Jump") &&
+      isGrounded &&
+      (hammerTime == null || !hammerTime.isHammerActive))
         {
             Jump();
         }
-
 
 
         UpdateAnimations();
@@ -111,7 +130,7 @@ public class PlayerController : MonoBehaviour
 
         if (anim != null)
         {
-            anim.SetTrigger("Jump");
+            anim.SetBool("isJumping", true);
         }
 
         //if (jumpClip != null && audioSource != null)
@@ -124,18 +143,26 @@ public class PlayerController : MonoBehaviour
     {
         if (other.CompareTag("Ladder"))
         {
-            print("climbing");
+            print("Climbing");
             canClimb = true;
-
         }
 
-        else
+        if (other.CompareTag("LadderExit"))
         {
-            print("NOT climbing");
+            print("Exited Ladder");
+
             canClimb = false;
+            rb.gravityScale = 1;
         }
     }
-
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.CompareTag("Ladder"))
+        {
+            canClimb = false;
+            rb.gravityScale = 1;
+        }
+    }
 
     private void Flip()
     {
