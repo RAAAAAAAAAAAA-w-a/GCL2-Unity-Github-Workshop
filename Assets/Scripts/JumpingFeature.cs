@@ -5,38 +5,45 @@ using UnityEngine.SceneManagement;
 
 public class JumpingFeature : MonoBehaviour
 {
-    private Animator anim;
-    private PlayerController player;
-    public Rigidbody2D rb;
-    public SpriteRenderer spriteRenderer;
-    public Sprite JumpFeature01;
-    public Sprite JumpFeature02;
+    public float jumpForce = 15f;
+    public Sprite newSprite;
+
+    private SpriteRenderer spriteRenderer;
+    private bool hasBeenUsed = false;
 
     void Start()
     {
-        //player.jumpFeature()
-        GetComponent<SpriteRenderer>().sprite = JumpFeature01;
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
-    void jumpFeature()
-    {
-
-        rb.linearVelocity = new Vector2(rb.linearVelocity.x, player.jumpForce * player.jumpBoost);
-    }
-}
-    /*
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("JumpFeature"))
+        if (other.CompareTag("Player") && !hasBeenUsed)
         {
-            print("jumping");
-           
-            jumpFeature();
+            Rigidbody2D playerRb = other.GetComponent<Rigidbody2D>();
 
+            if (playerRb != null)
+            {
+                // gives the player an upward jump boost
+                playerRb.linearVelocity = new Vector2(
+                    playerRb.linearVelocity.x,
+                    jumpForce
+                );
+
+                // replace the current sprite
+                if (newSprite != null)
+                {
+                    spriteRenderer.sprite = newSprite;
+                }
+
+                hasBeenUsed = true;
+            }
         }
     }
-    /*
-    public class Jump
+
+}
+
+    /*public class Jump
     {
 
         protected Collider2D collider;

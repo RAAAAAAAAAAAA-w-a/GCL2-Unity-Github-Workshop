@@ -2529,7 +2529,7 @@ TextureImporter:
         width: 0
         height: 0
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -2542,11 +2542,33 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Arcade - Donkey Kong - Miscellaneous - Characters and Objects-Photoroom_105
+      rect:
+        serializedVersion: 2
+        x: 57
+        y: 299
+        width: 12
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1068c60e231763c4cba0878f905cce3a
+      internalID: 497292490
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 1ccbad5409fdee847ae7e55af8fa8478
     internalID: 0
     vertices: []
     indices: 
@@ -2564,6 +2586,7 @@ TextureImporter:
       Arcade - Donkey Kong - Miscellaneous - Characters and Objects-Photoroom_102: -6360106241450635856
       Arcade - Donkey Kong - Miscellaneous - Characters and Objects-Photoroom_103: 4852997246817754377
       Arcade - Donkey Kong - Miscellaneous - Characters and Objects-Photoroom_104: 8417051817461091003
+      Arcade - Donkey Kong - Miscellaneous - Characters and Objects-Photoroom_105: 497292490
       Arcade - Donkey Kong - Miscellaneous - Characters and Objects-Photoroom_11: -995756791735813838
       Arcade - Donkey Kong - Miscellaneous - Characters and Objects-Photoroom_12: 1499026207562634057
       Arcade - Donkey Kong - Miscellaneous - Characters and Objects-Photoroom_13: 3402916182907299833
