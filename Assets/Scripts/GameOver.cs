@@ -1,8 +1,19 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class GameOver : MonoBehaviour
 {
+    public TextMeshProUGUI highScoreText;
+    public TextMeshProUGUI finalScoreText;
+
+    public void scoreResults()
+    {
+        finalScoreText.text = "FINAL SCORE: " + scoreManager.instance.CurrentScore().ToString("000000");
+        highScoreText.text = "YOUR HIGH SCORE: " + PlayerPrefs.GetInt("TopScore", 0).ToString("000000");
+    }
+
+
     public void BackToMainMenu()
     {
         Debug.Log("BACK TO MAIN MENU CLICKED");

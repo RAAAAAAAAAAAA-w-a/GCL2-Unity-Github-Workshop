@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.Windows;
 
 public class hammerPowerup : MonoBehaviour
@@ -42,6 +43,7 @@ public class hammerPowerup : MonoBehaviour
         {
             print("murder");
             Destroy(other.gameObject);
+            scoreManager.instance.AddPoints(500);
         }
     }
 }
