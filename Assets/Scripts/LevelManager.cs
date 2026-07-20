@@ -1,72 +1,57 @@
-using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Collections;
 
 public class LevelManager : MonoBehaviour
 {
-    [Header("Game States")]
-    public bool isGameActive = false;
+    [Header("Player Setup")]
+    [Tooltip("Drag Mario's PlayerController script component here")]
+    public MonoBehaviour playerControllerScript;
 
-    [Header("Player Reference")]
-    public MonoBehaviour playerMovementScript;
+    [Header("Spawner Setup")]
+    [Tooltip("Drag the GameObject that handles spawning barrels here")]
+    public GameObject barrelSpawner;
 
-    [Header("Barrel Spawning")]
-    public GameObject barrelPrefab;
-    public Transform spawnPoint;
-    public float spawnInterval = 3f;
+    [Header("Scene Management")]
+    [Tooltip("Make sure this exact scene name is added to your Build Settings!")]
+    public string winScreenSceneName = "WinScreen";
 
     void Start()
     {
-        if (playerMovementScript != null)
-        {
-            playerMovementScript.enabled = false;
-        }
+        // i. Start the level loop immediately upon loading
         StartCoroutine(StartLevelCountdown());
     }
 
     IEnumerator StartLevelCountdown()
     {
-        Debug.Log("Level Loaded. Countdown started...");
+        // Turn off Mario's movement script at birth
+        if (playerControllerScript != null) playerControllerScript.enabled = false;
+
+        // Turn off the barrel spawner object at birth
+        if (barrelSpawner != null) barrelSpawner.SetActive(false);
+
+        // Wait exactly 3 seconds
         yield return new WaitForSeconds(3f);
 
-        Debug.Log("3 seconds up! Mario can now move.");
-        isGameActive = true;
+        // Enable everything so the game actually starts
+        if (playerControllerScript != null) playerControllerScript.enabled = true;
+        if (barrelSpawner != null) barrelSpawner.SetActive(true);
 
-        if (playerMovementScript != null)
-        {
-            playerMovementScript.enabled = true;
-        }
-
-        StartCoroutine(SpawnBarrelRoutine());
+        Debug.Log("3 seconds passed: Spawning started and Mario can move!");
     }
 
-    IEnumerator SpawnBarrelRoutine()
-    {
-        while (isGameActive)
-        {
-            SpawnBarrel();
-            yield return new WaitForSeconds(spawnInterval);
-        }
-    }
-
-    void SpawnBarrel()
-    {
-        if (barrelPrefab != null && spawnPoint != null)
-        {
-            // Spawn the barrel
-            GameObject newBarrel = Instantiate(barrelPrefab, spawnPoint.position, spawnPoint.rotation);
-        }
-    }
-
+    // ii. Loss Condition: Call this when Mario hits a barrel or hazard
     public void PlayerDied()
     {
-        Debug.Log("Mario hit an obstacle! Reloading level...");
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        Debug.Log("Mario hit an obstacle! Restarting level...");
+        // Reloads whatever level is currently active
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
+    // iii. Win Condition: Call this when Mario reaches the Princess
     public void PlayerWon()
     {
-        Debug.Log("Mario saved the Princess! Loading Win Screen...");
-        SceneManager.LoadScene("WinScreen");
+        Debug.Log("Mario reached the Princess! Loading win screen...");
+        SceneManager.LoadScene(winScreenSceneName);
     }
 }
