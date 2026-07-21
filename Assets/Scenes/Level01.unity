@@ -9830,6 +9830,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jumpForce: 15
   newSprite: {fileID: 497292490, guid: cbd72104ad953074c82720a39bd212e4, type: 3}
+  upperPlatform: {fileID: 1687617922}
+  ignoreCollisionTime: 0.5
 --- !u!61 &737690548
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -9940,7 +9942,7 @@ Transform:
   m_GameObject: {fileID: 737690546}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.24, y: -3.83, z: 0}
+  m_LocalPosition: {x: -1.29, y: -1.62, z: 0}
   m_LocalScale: {x: 3.5, y: 3.5, z: 3.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -15223,6 +15225,7 @@ GameObject:
   - component: {fileID: 2045704350}
   - component: {fileID: 2045704352}
   - component: {fileID: 2045704351}
+  - component: {fileID: 2045704353}
   m_Layer: 7
   m_Name: Untitled_85 (5)
   m_TagString: Ladder
@@ -15346,6 +15349,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &2045704353
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2045704349}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d427e1a3d21d784408f0a08f46f5e663, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  platformCollider: {fileID: 2003923405}
+  ignorePlatform: 0
 --- !u!1 &2053826686
 GameObject:
   m_ObjectHideFlags: 0

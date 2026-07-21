@@ -43,7 +43,7 @@ public class Barrel : MonoBehaviour
         }
 
         // Restart the scene if the player is hit.
-        if (collision.gameObject.TryGetComponent(out PlayerController p))
+        if (collision.gameObject.TryGetComponent(out PlayerController p) && !hammer.isHammerActive)
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }

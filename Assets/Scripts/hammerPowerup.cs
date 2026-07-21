@@ -51,7 +51,6 @@ public class hammerPowerup : MonoBehaviour
         {
             StartCoroutine(activationTime());
         }
-
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -68,7 +67,7 @@ public class hammerPowerup : MonoBehaviour
             scoreManager.instance.AddPoints(500);
         }
     }
-             private void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Enemy") && isHammerActive)
         {
@@ -76,7 +75,5 @@ public class hammerPowerup : MonoBehaviour
             Destroy(collision.gameObject);
             scoreManager.instance.AddPoints(500);
         }
-
-
     }
 }

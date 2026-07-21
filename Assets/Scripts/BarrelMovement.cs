@@ -4,6 +4,7 @@ public class BarrelMovement : MonoBehaviour
 {
     [Header("Movement Settings")]
     public float moveSpeed = 3f;
+    private hammerPowerup hammer;
 
     private float currentHorizontalSpeed;
     private Rigidbody2D rb;
@@ -29,7 +30,7 @@ public class BarrelMovement : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             LevelManager manager = FindAnyObjectByType<LevelManager>();
-            if (manager != null)
+            if (manager != null && !hammer.isHammerActive)
             {
                 // Calls your manager's death function if it exists
                 manager.PlayerDied();
