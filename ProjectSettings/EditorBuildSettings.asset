@@ -17,6 +17,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Credits.unity
     guid: 7b7a31803cfe2984393ff727d2baa98c
+  - enabled: 1
+    path: Assets/Scenes/How High Can You Get.unity
+    guid: 06ba9adfbbafbaf41a9343f55dab826f
+  - enabled: 1
+    path: Assets/Scenes/Level01.unity
+    guid: 00d4a3944b872bb49bd720cc32de903d
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
