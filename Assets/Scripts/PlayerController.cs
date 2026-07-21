@@ -157,16 +157,13 @@ public class PlayerController : MonoBehaviour
         {
             canClimb = true;
 
-            if (ladder != null && ladder.ignorePlatform)
-            {
-                isGrounded = false;
-            }
         }
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
         if (other.CompareTag("Ladder") && !hammer.isHammerActive)
+        if (other.CompareTag("Ladder"))
         {
             canClimb = false;
         }

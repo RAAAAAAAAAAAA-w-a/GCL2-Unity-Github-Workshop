@@ -51,27 +51,25 @@ public class hammerPowerup : MonoBehaviour
         {
             StartCoroutine(activationTime());
         }
+
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Hammer"))
         {
-            print("Hammer time triggered");
             hammerTime();
         }
-        else if (other.CompareTag("Enemy") && isHammerActive)
+        else if (other.CompareTag("Barrel") && isHammerActive)
         {
-            print("murder");
             Destroy(other.gameObject);
             scoreManager.instance.AddPoints(500);
         }
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Enemy") && isHammerActive)
+        if (collision.gameObject.CompareTag("Barrel") && isHammerActive)
         {
-            print("Smashed into solid enemy");
             Destroy(collision.gameObject);
             scoreManager.instance.AddPoints(500);
         }
