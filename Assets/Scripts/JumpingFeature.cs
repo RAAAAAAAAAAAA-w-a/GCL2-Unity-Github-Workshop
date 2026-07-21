@@ -6,7 +6,7 @@ public class JumpingFeature : MonoBehaviour
 {
     [Header("Jump Force Override")]
     [Tooltip("Target launch force - tuned down for lower jump height")]
-    public float jumpForce = 3.5f; // Set much lower (3.5f)
+    public float jumpForce = 0.1f;
 
     [SerializeField] private Sprite newSprite;
     [SerializeField] private Collider2D upperPlatform;
