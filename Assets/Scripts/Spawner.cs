@@ -10,6 +10,7 @@ public class Spawner : MonoBehaviour
 
     private void Start()
     {
+        //spawn barrels
         Spawn();
     }
 

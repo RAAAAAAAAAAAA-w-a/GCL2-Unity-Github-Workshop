@@ -25,6 +25,7 @@ public class JumpingFeature : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
+    //detects when player steps on jump platform
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (!other.CompareTag("Player") || hasBeenUsed)
@@ -65,6 +66,7 @@ public class JumpingFeature : MonoBehaviour
         }
     }
 
+    //renable collision with platform after delay
     private IEnumerator ReEnableCollision(Collider2D playerCollider)
     {
         yield return new WaitForSeconds(ignoreCollisionTime);

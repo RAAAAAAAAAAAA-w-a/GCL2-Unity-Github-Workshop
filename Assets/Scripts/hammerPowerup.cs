@@ -17,6 +17,7 @@ public class hammerPowerup : MonoBehaviour
         playerCtrl = GetComponent<PlayerController>();
     }
 
+    //activates hammer power up for a certain duration
     private IEnumerator activationTime()
     {
         isHammerActive = true;
@@ -28,16 +29,18 @@ public class hammerPowerup : MonoBehaviour
             animator.SetBool("isHammerActive", true);
         }
 
+        // countdown till power up expire
         while (timer > 0)
         {
             timer -= Time.deltaTime;
             yield return null;
         }
 
+        //deactivate power up
         isHammerActive = false;
 
 
-        // Animator to go back to the normal walk animation
+        // animator to go back to the normal walk animation
         if (animator != null)
         {
             animator.SetBool("isHammerActive", false);
@@ -45,6 +48,7 @@ public class hammerPowerup : MonoBehaviour
         print("hammertime ended :)");
     }
 
+    //starts hammer if it isnt active
     public void hammerTime()
     {
         if (!isHammerActive)
@@ -54,6 +58,7 @@ public class hammerPowerup : MonoBehaviour
 
     }
 
+    //detects hammer pickups and destroy barrels
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Hammer"))
@@ -66,6 +71,8 @@ public class hammerPowerup : MonoBehaviour
             scoreManager.instance.AddPoints(500);
         }
     }
+
+    //destroys barrels on collision while hammer active
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Barrel") && isHammerActive)

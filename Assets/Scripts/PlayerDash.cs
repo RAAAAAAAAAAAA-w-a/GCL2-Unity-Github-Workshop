@@ -25,6 +25,7 @@ public class PlayerDash : MonoBehaviour
         dashRemaining = maxDashes;
     }
 
+    //left shift to dash
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.LeftShift) && dashRemaining > 0 && !isDashing)
@@ -40,43 +41,43 @@ public class PlayerDash : MonoBehaviour
 
         dashRemaining--;
 
-        // Stop normal movement
+        // stop normal movement
         player.canMove = false;
 
-        // Save gravity
+        // save gravity
         float originalGravity = rb.gravityScale;
 
-        // Disable gravity
+        // disable gravity
         rb.gravityScale = 0;
 
 
-        // Get facing direction
+        // get facing direction
         float direction = player.IsFacingRight ? 1f : -1f;
 
 
-        // Play dash effect
+        // play dash effect
         if (dashEffect != null)
         {
             dashEffect.Play();
         }
 
 
-        // Dash movement
+        // dash movement
         rb.linearVelocity = new Vector2(direction * dashSpeed, 0);
 
 
         yield return new WaitForSeconds(dashDuration);
 
 
-        // Stop dash
+        // stop dash
         rb.linearVelocity = Vector2.zero;
 
 
-        // Restore gravity
+        // restore gravity
         rb.gravityScale = originalGravity;
 
 
-        // Allow movement again
+        // allow movement again
         player.canMove = true;
 
         isDashing = false;
