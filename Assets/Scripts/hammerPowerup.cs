@@ -8,10 +8,25 @@ public class hammerPowerup : MonoBehaviour
     public float seconds = 5.0f;
     public bool isHammerActive;
 
+    private Animator animator;
+    private PlayerController playerCtrl;
+
+    void Start()
+    {
+        animator = GetComponent<Animator>();
+        playerCtrl = GetComponent<PlayerController>();
+    }
+
     private IEnumerator activationTime()
     {
         isHammerActive = true;
         float timer = seconds;
+
+        // Animator to switch to the hammer walk animation
+        if (animator != null)
+        {
+            animator.SetBool("isHammerActive", true);
+        }
 
         while (timer > 0)
         {
@@ -20,6 +35,13 @@ public class hammerPowerup : MonoBehaviour
         }
 
         isHammerActive = false;
+
+
+        // Animator to go back to the normal walk animation
+        if (animator != null)
+        {
+            animator.SetBool("isHammerActive", false);
+        }
         print("hammertime ended :)");
     }
 
@@ -45,5 +67,16 @@ public class hammerPowerup : MonoBehaviour
             Destroy(other.gameObject);
             scoreManager.instance.AddPoints(500);
         }
+    }
+             private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Enemy") && isHammerActive)
+        {
+            print("Smashed into solid enemy");
+            Destroy(collision.gameObject);
+            scoreManager.instance.AddPoints(500);
+        }
+
+
     }
 }
