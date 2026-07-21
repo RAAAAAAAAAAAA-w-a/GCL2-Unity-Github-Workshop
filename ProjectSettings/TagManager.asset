@@ -8,6 +8,8 @@ TagManager:
   - Ladder
   - LadderExit
   - hammer
+  - Hammer
+  - Enemy
   layers:
   - Default
   - TransparentFX
