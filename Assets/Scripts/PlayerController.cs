@@ -37,6 +37,7 @@ public class PlayerController : MonoBehaviour
     public float climbInput;
 
     private hammerPowerup hammer;
+    private Ladder ladder;
 
     // Respawn position
     private Vector3 respawnPosition;
@@ -62,11 +63,7 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {// Check if player is on the ground
-        isGrounded = Physics2D.OverlapCircle(
-            groundCheck.position,
-            groundCheckRadius,
-            groundLayer
-        );
+        isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
 
         // Reset jumping when landed
         if (isGrounded)
@@ -102,10 +99,15 @@ public class PlayerController : MonoBehaviour
 
         // Flip sprite
         if (moveInput < 0)
-            transform.localScale = new Vector3(1f, 1f, 1f);
-        else if (moveInput > 0)
-            transform.localScale = new Vector3(-1f, 1f, 1f);
 
+        {
+            transform.localScale = new Vector3(1f, 1f, 1f);
+        }
+
+        else if (moveInput > 0)
+        {
+            transform.localScale = new Vector3(-1f, 1f, 1f);
+        }
 
 
         // Flip player sprite to movement direction
@@ -151,9 +153,14 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Ladder"))
+        if (other.CompareTag("Ladder") && !hammerTime.isHammerActive)
         {
             canClimb = true;
+
+            if (ladder != null && ladder.ignorePlatform)
+            {
+                isGrounded = false;
+            }
         }
     }
 

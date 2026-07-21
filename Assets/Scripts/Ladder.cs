@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Ladder : MonoBehaviour
@@ -6,7 +7,7 @@ public class Ladder : MonoBehaviour
     [SerializeField] private Collider2D platformCollider;
 
     private Collider2D playerCollider;
-    private bool ignorePlatform = false;
+    public bool ignorePlatform = false;
 
 
     private void OnTriggerStay2D(Collider2D other)
@@ -41,11 +42,7 @@ public class Ladder : MonoBehaviour
     {
         if (!ignorePlatform && playerCollider != null && platformCollider != null)
         {
-            Physics2D.IgnoreCollision(
-                playerCollider,
-                platformCollider,
-                true
-            );
+            Physics2D.IgnoreCollision( playerCollider, platformCollider, true);
 
             ignorePlatform = true;
         }
