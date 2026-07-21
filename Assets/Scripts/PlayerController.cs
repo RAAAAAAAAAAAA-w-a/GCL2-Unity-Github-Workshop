@@ -83,6 +83,12 @@ public class PlayerController : MonoBehaviour
         Debug.Log("Velocity = " + rb.linearVelocity);
         Debug.Log("Grounded: " + isGrounded);
 
+        if (isClimbing)
+        {
+            moveInput = Input.GetAxisRaw("verticle");
+            rb.linearVelocity = new Vector2(moveInput * moveSpeed, rb.linearVelocity.y);
+        }
+
 
         if (canClimb)
         {
@@ -174,6 +180,7 @@ public class PlayerController : MonoBehaviour
         else
         {
             canClimb = false;
+            isClimbing = false;
         }
             
     }
