@@ -76,8 +76,8 @@ public class PlayerController : MonoBehaviour
             moveInput = Input.GetAxisRaw("Horizontal");
             rb.linearVelocity = new Vector2(moveInput * moveSpeed, rb.linearVelocity.y);
         }
-        Debug.Log("Velocity = " + rb.linearVelocity);
-        Debug.Log("Grounded: " + isGrounded);
+        // Debug.Log("Velocity = " + rb.linearVelocity);
+        // Debug.Log("Grounded: " + isGrounded);
 
 
         //climbing
