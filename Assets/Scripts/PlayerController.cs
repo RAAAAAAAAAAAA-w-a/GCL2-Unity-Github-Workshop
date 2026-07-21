@@ -29,12 +29,12 @@ public class PlayerController : MonoBehaviour
     private AudioSource audioSource;
 
     public bool canMove = true;
-    private float moveInput;
-    private bool isFacingRight = true;
-    private bool isGrounded;
-    private bool isJumping;
-    private bool canClimb = false;
-    private float climbInput;
+    public float moveInput;
+    public bool isFacingRight = true;
+    public bool isGrounded;
+    public bool isJumping;
+    public bool canClimb = false;
+    public float climbInput;
 
     private hammerPowerup hammer;
 
@@ -97,6 +97,8 @@ public class PlayerController : MonoBehaviour
         {
             rb.gravityScale = 1;
         }
+
+
 
         // Flip sprite
         if (moveInput < 0)
