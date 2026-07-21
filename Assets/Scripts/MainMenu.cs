@@ -15,16 +15,19 @@ public class MainMenu : MonoBehaviour
         
     }
 
+    //button goes to opening scene
     public void NewGame()
     {
         SceneManager.LoadScene("Opening Scene");
     }
 
+    //button goes to opening scene
     public void ContinueGame()
     {
         SceneManager.LoadScene("Opening Scene");
     }
 
+    //button goes to credit
     public void Credits()
     {
         SceneManager.LoadScene("Credits");

@@ -79,6 +79,8 @@ public class PlayerController : MonoBehaviour
         Debug.Log("Velocity = " + rb.linearVelocity);
         Debug.Log("Grounded: " + isGrounded);
 
+
+        //climbing
         if (canClimb)
         {
             climbInput = Input.GetAxisRaw("Vertical");
@@ -123,7 +125,7 @@ public class PlayerController : MonoBehaviour
         }
 
 
-        // Jump
+        // Jump if grounded inactive
         if (Input.GetButtonDown("Jump") && isGrounded && (hammerTime == null || !hammerTime.isHammerActive))
         {
             Jump();
@@ -160,6 +162,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    //enables climbing when entering ladder
     private void OnTriggerExit2D(Collider2D other)
     {
         if (other.CompareTag("Ladder") && !hammer.isHammerActive)
@@ -178,6 +181,7 @@ public class PlayerController : MonoBehaviour
         transform.localScale = scale;
     }
 
+    //update player aniamtions
     private void UpdateAnimations()
     {
         if (anim == null) return;
