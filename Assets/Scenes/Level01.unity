@@ -9825,6 +9825,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jumpForce: 15
   newSprite: {fileID: 497292490, guid: cbd72104ad953074c82720a39bd212e4, type: 3}
+  upperPlatform: {fileID: 1687617922}
+  ignoreCollisionTime: 0.5
 --- !u!61 &737690548
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -9935,7 +9937,7 @@ Transform:
   m_GameObject: {fileID: 737690546}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.24, y: -3.83, z: 0}
+  m_LocalPosition: {x: -1.29, y: -1.62, z: 0}
   m_LocalScale: {x: 3.5, y: 3.5, z: 3.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
