@@ -8255,7 +8255,7 @@ GameObject:
   - component: {fileID: 569742900}
   m_Layer: 0
   m_Name: Size
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12404,6 +12404,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8827314390880682653, guid: c23344687f701f94cbac0c64e67a159a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1262410850}
+    - targetCorrespondingSourceObject: {fileID: 8827314390880682653, guid: c23344687f701f94cbac0c64e67a159a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1262410854}
   m_SourcePrefab: {fileID: 100100000, guid: c23344687f701f94cbac0c64e67a159a, type: 3}
 --- !u!1 &1262410849 stripped
 GameObject:
@@ -12456,6 +12459,18 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.16, y: 0.22}
   m_EdgeRadius: 0
+--- !u!114 &1262410854
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1262410849}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eaa746a3b62c1ec4dad84f74ab8ce135, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1290687033
 GameObject:
   m_ObjectHideFlags: 0
