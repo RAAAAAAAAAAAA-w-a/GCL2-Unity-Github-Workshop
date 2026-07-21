@@ -34,7 +34,6 @@ public class PlayerController : MonoBehaviour
     private bool isGrounded;
     private bool isJumping;
     private bool canClimb = false;
-    private bool isClimbing;
     private float climbInput;
 
     private hammerPowerup hammer;
@@ -73,10 +72,9 @@ public class PlayerController : MonoBehaviour
         if (isGrounded)
         {
             isJumping = false;
-            isClimbing = false;
         }
         // Horizontal movement
-        if (canMove & !isClimbing)
+        if (canMove)
         {
             moveInput = Input.GetAxisRaw("Horizontal");
             rb.linearVelocity = new Vector2(moveInput * moveSpeed, rb.linearVelocity.y);
@@ -88,14 +86,16 @@ public class PlayerController : MonoBehaviour
         {
             climbInput = Input.GetAxisRaw("Vertical");
             rb.gravityScale = 0;
+            rb.linearVelocity = new Vector2(rb.linearVelocity.x, climbInput * climbSpeed);
 
-            rb.linearVelocity = new Vector2(0f, climbInput * climbSpeed);
-            isClimbing = Mathf.Abs(climbInput) > 0.1f;
+            if (!isGrounded)
+            {
+                rb.linearVelocity = new Vector2(0f, climbInput * climbSpeed);
+            }
         }
         else
         {
             rb.gravityScale = 1;
-            isClimbing = false;
         }
 
         // Flip sprite
@@ -151,22 +151,18 @@ public class PlayerController : MonoBehaviour
     {
         if (other.CompareTag("Ladder"))
         {
-            print("Climbing");
             canClimb = true;
-            
-            if (!isGrounded)
-            {
-                canMove = false;
-            }
         }
+    }
 
-        else
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.CompareTag("Ladder"))
         {
             canClimb = false;
-            isClimbing = false;
         }
-            
     }
+
 
     private void Flip()
     {
