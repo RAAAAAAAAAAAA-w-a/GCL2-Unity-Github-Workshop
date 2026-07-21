@@ -80,13 +80,23 @@ public class PlayerController : MonoBehaviour
         }
         Debug.Log("Velocity = " + rb.linearVelocity);
         Debug.Log("Grounded: " + isGrounded);
-        if (canClimb)
+        if (canClimb & !isGrounded)
         {
             rb.gravityScale = 0;
 
             float climbInput = Input.GetAxisRaw("Vertical");
             rb.linearVelocity = new Vector2(moveInput * moveSpeed, climbInput * climbSpeed);
         }
+        
+        if(canClimb & isGrounded)
+        {
+            rb.gravityScale = 0;
+
+            float climbInput = Input.GetAxisRaw("Vertical");
+            rb.linearVelocity = new Vector2(moveInput * 0, climbInput * climbSpeed);
+
+        }
+
         else
         {
             rb.gravityScale = 1;
@@ -151,21 +161,11 @@ public class PlayerController : MonoBehaviour
             canClimb = true;
         }
 
-        if (other.CompareTag("LadderExit"))
-        {
-            print("Exited Ladder");
-
-            canClimb = false;
-            rb.gravityScale = 1;
-        }
-    }
-    private void OnTriggerExit2D(Collider2D other)
-    {
-        if (other.CompareTag("Ladder"))
+        else
         {
             canClimb = false;
-            rb.gravityScale = 1;
         }
+            
     }
 
     private void Flip()
