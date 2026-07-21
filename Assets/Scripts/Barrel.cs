@@ -4,31 +4,41 @@ using UnityEngine.SceneManagement;
 
 public class Barrel : MonoBehaviour
 {
-    private new Rigidbody2D rigidbody;
+    private Rigidbody2D rb;
     public float speed = 1f;
-    private PlayerController player;
-    private hammerPowerup hammerTime;
 
+    private LevelManager levelManager;
+    private hammerPowerup hammerTime;
 
     private void Awake()
     {
-        rigidbody = GetComponent<Rigidbody2D>();
+        rb = GetComponent<Rigidbody2D>();
+
+        levelManager = FindFirstObjectByType<LevelManager>();
+        hammerTime = FindFirstObjectByType<hammerPowerup>(); // finding the scripts to refer to immediately befoer game starts
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.layer == LayerMask.NameToLayer("Ground"))
         {
-            rigidbody.AddForce(collision.transform.right * speed, ForceMode2D.Impulse);
+            rb.AddForce(collision.transform.right * speed, ForceMode2D.Impulse); //ensures that a collision is made to the ground and gets pushed forward
         }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Barrel") && !hammerTime.isHammerActive)
+        if (other.CompareTag("Player"))
         {
-            SceneManager.LoadScene("Opening Scene");
+            // if hammer time is not active and comes into contact with player, kill player
+            if (hammerTime == null || !hammerTime.isHammerActive)
+            {
+                if (levelManager != null)
+                {
+                    levelManager.PlayerDied(); // game resets 
+                    print("died");
+                }
+            }
         }
     }
-
 }
