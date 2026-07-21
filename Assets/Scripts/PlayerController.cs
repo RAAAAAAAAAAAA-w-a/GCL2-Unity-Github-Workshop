@@ -166,7 +166,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.CompareTag("Ladder"))
+        if (other.CompareTag("Ladder") && !hammer.isHammerActive)
         {
             canClimb = false;
         }
