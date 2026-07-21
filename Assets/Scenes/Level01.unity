@@ -11741,7 +11741,8 @@ Transform:
   m_LocalPosition: {x: 5.87, y: 2.11, z: 0}
   m_LocalScale: {x: 0.625072, y: 0.491128, z: 4.4648}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1965878244}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1262410848
@@ -12697,8 +12698,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db6446a6a174ca340b18653dafba688d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreText: {fileID: 0}
-  topScoreText: {fileID: 0}
+  scoreText: {fileID: 790967557}
+  topScoreText: {fileID: 798901558}
 --- !u!1 &1467181623
 GameObject:
   m_ObjectHideFlags: 0
@@ -14122,7 +14123,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
-  jumpForce: 10
+  jumpForce: 4
   climbSpeed: 3
   jumpBoost: 1.5
   groundLayer:
@@ -14603,12 +14604,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1965878242}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.231864, y: 3.7810385, z: -0.051795803}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -14.561305, y: 3.4024503, z: -0.011600925}
+  m_LocalScale: {x: 1.5998157, y: 2.036129, z: 0.22397421}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1260876300}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1968448633
 GameObject:
@@ -15554,7 +15555,6 @@ SceneRoots:
   - {fileID: 60904740}
   - {fileID: 1740867504}
   - {fileID: 1039997041}
-  - {fileID: 1965878244}
   - {fileID: 1260876300}
   - {fileID: 55275133}
   - {fileID: 8988879892238399060}

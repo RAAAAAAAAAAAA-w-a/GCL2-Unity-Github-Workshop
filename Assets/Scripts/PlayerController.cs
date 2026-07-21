@@ -35,6 +35,7 @@ public class PlayerController : MonoBehaviour
     private bool isJumping;
     private bool canClimb = false;
     private bool isClimbing;
+    private float climbInput;
 
     private hammerPowerup hammer;
 
@@ -75,7 +76,7 @@ public class PlayerController : MonoBehaviour
             isClimbing = false;
         }
         // Horizontal movement
-        if (canMove)
+        if (canMove & !isClimbing)
         {
             moveInput = Input.GetAxisRaw("Horizontal");
             rb.linearVelocity = new Vector2(moveInput * moveSpeed, rb.linearVelocity.y);
@@ -83,34 +84,18 @@ public class PlayerController : MonoBehaviour
         Debug.Log("Velocity = " + rb.linearVelocity);
         Debug.Log("Grounded: " + isGrounded);
 
-        if (isClimbing)
-        {
-            moveInput = Input.GetAxisRaw("verticle");
-            rb.linearVelocity = new Vector2(moveInput * moveSpeed, rb.linearVelocity.y);
-        }
-
-
         if (canClimb)
         {
+            climbInput = Input.GetAxisRaw("Vertical");
             rb.gravityScale = 0;
 
-            rb.linearVelocity = new Vector2(rb.linearVelocity.y, climbSpeed);
-
-            if (!isGrounded)
-            {
-                isClimbing = true;
-            }
-
-            if (isGrounded)
-            {
-                isClimbing = false;
-            }
-
+            rb.linearVelocity = new Vector2(0f, climbInput * climbSpeed);
+            isClimbing = Mathf.Abs(climbInput) > 0.1f;
         }
-
         else
         {
             rb.gravityScale = 1;
+            isClimbing = false;
         }
 
         // Flip sprite
@@ -135,9 +120,7 @@ public class PlayerController : MonoBehaviour
 
 
         // Jump
-        if (Input.GetButtonDown("Jump") &&
-      isGrounded &&
-      (hammerTime == null || !hammerTime.isHammerActive))
+        if (Input.GetButtonDown("Jump") && isGrounded && (hammerTime == null || !hammerTime.isHammerActive))
         {
             Jump();
         }
@@ -207,11 +190,4 @@ public class PlayerController : MonoBehaviour
     {
         return respawnPosition;
     }
-
-    
-
-    
-
-
-
 }
