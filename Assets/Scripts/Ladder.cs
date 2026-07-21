@@ -16,26 +16,26 @@ public class Ladder : MonoBehaviour
 
         float verticalInput = Input.GetAxisRaw("Vertical");
 
-        // 1. Start climbing when W/S or Up/Down arrows are pressed
+        //start climbing when W/S or Up/Down arrows are pressed
         if (Mathf.Abs(verticalInput) > 0.1f)
         {
             playerRb.gravityScale = 0f; // Turn off gravity while climbing
             playerRb.linearVelocity = new Vector2(playerRb.linearVelocity.x, verticalInput * climbSpeed);
         }
 
-        // 2. Automatically find any platform Mario is touching and bypass collision
+        // automatically find any platform Mario is touching and bypass collision
         Collider2D[] nearbyColliders = Physics2D.OverlapBoxAll(playerCollider.bounds.center, playerCollider.bounds.size, 0f);
 
         foreach (Collider2D plat in nearbyColliders)
         {
             if (plat.CompareTag("Platform"))
             {
-                // If climbing up or below the top of the platform, ignore collision
+                //if climbing up or below the top of the platform, ignore collision
                 if (verticalInput > 0 || other.transform.position.y < plat.bounds.max.y)
                 {
                     Physics2D.IgnoreCollision(playerCollider, plat, true);
                 }
-                // Once Mario's feet reach above the top edge, re-enable collision so he can stand on it
+                //once Mario's feet reach above the top edge, re-enable collision so he can stand on it
                 else if (other.transform.position.y >= plat.bounds.max.y)
                 {
                     Physics2D.IgnoreCollision(playerCollider, plat, false);

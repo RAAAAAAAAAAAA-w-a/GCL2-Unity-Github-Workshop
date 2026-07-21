@@ -4,6 +4,7 @@ public class Princess : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D other)
     {
+        //player touches princess
         Debug.Log("Princess was touched by: " + other.gameObject.name + " with tag: " + other.tag);
 
         if (other.CompareTag("Player"))
