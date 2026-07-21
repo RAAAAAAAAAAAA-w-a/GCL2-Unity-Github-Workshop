@@ -2,11 +2,12 @@ using UnityEngine;
 
 public class Ladder : MonoBehaviour
 {
-    [Header("Phasing Through Platform")]
+    [Header("Platform Above Ladder")]
     [SerializeField] private Collider2D platformCollider;
 
-    private bool playerIgnoringPlatform = false;
-    private PlayerController player;
+    private Collider2D playerCollider;
+    private bool ignorePlatform = false;
+
 
     private void OnTriggerStay2D(Collider2D other)
     {
@@ -18,40 +19,35 @@ public class Ladder : MonoBehaviour
         if (player == null)
             return;
 
-        Collider2D playerCollider = other.GetComponent<Collider2D>();
-        bool pressDown = Input.GetAxisRaw("Vertical") < 0;
-
-        bool falling = !player.isGrounded && !player.isJumping;
+        playerCollider = other.GetComponent<Collider2D>();
 
 
-        if ((pressDown && player.isGrounded) || falling)
+        // Player is standing on the platform and presses DOWN
+        if (player.isGrounded && Input.GetAxisRaw("Vertical") < 0)
         {
-            if (!playerIgnoringPlatform)
-            {
-                Physics2D.IgnoreCollision(playerCollider,platformCollider,true);
+            IgnorePlatform();
+        }
 
-                playerIgnoringPlatform = true;
-            }
+
+        // Player is climbing UP and needs to pass through the platform
+        if (!player.isGrounded && player.canClimb && player.climbInput > 0)
+        {
+            IgnorePlatform();
         }
     }
 
 
-    private void OnTriggerExit2D(Collider2D other)
+    private void IgnorePlatform()
     {
-        if (!other.CompareTag("Player"))
-            return;
-
-        Collider2D playerCollider = other.GetComponent<Collider2D>();
-
-        if (playerCollider != null && platformCollider != null)
+        if (!ignorePlatform && playerCollider != null && platformCollider != null)
         {
             Physics2D.IgnoreCollision(
                 playerCollider,
                 platformCollider,
-                false
+                true
             );
 
-            playerIgnoringPlatform = false;
+            ignorePlatform = true;
         }
     }
 }
