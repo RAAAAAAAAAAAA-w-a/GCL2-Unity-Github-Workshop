@@ -46,10 +46,7 @@ public class Ladder : MonoBehaviour
             playerCollider != null &&
             platformCollider != null)
         {
-            Physics2D.IgnoreCollision(
-                playerCollider,
-                platformCollider,
-                true
+            Physics2D.IgnoreCollision( playerCollider, platformCollider,  true
             );
 
             ignoringPlatform = true;
