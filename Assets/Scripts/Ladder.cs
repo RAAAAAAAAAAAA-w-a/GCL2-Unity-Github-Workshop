@@ -11,31 +11,61 @@ public class Ladder : MonoBehaviour
 
         Rigidbody2D playerRb = other.GetComponent<Rigidbody2D>();
         Collider2D playerCollider = other.GetComponent<Collider2D>();
+        Animator playerAnim = other.GetComponent<Animator>();
 
         if (playerRb == null || playerCollider == null) return;
 
         float verticalInput = Input.GetAxisRaw("Vertical");
 
-        //start climbing when W/S or Up/Down arrows are pressed
+        // 1. Moving Up/Down on the ladder
         if (Mathf.Abs(verticalInput) > 0.1f)
         {
             playerRb.gravityScale = 0f; // Turn off gravity while climbing
             playerRb.linearVelocity = new Vector2(playerRb.linearVelocity.x, verticalInput * climbSpeed);
+
+            if (playerAnim != null)
+            {
+                // Force-suppress running/walking states from PlayerController
+                playerAnim.SetFloat("speed", 0f);
+                playerAnim.SetBool("isRunning", false);
+                playerAnim.SetBool("isWalking", false);
+
+                // Enable climb animation and ensure playback speed is normal
+                playerAnim.SetBool("isClimbing", true);
+                playerAnim.speed = 1f;
+            }
+        }
+        // 2. Hanging stationary on the ladder (not pressing W/S or Up/Down)
+        else if (playerRb.gravityScale == 0f)
+        {
+            playerRb.linearVelocity = new Vector2(playerRb.linearVelocity.x, 0f);
+
+            if (playerAnim != null)
+            {
+                // Keep movement parameters suppressed
+                playerAnim.SetFloat("speed", 0f);
+                playerAnim.SetBool("isRunning", false);
+                playerAnim.SetBool("isWalking", false);
+
+                // Hold climbing pose and pause animation frame while still
+                playerAnim.SetBool("isClimbing", true);
+                playerAnim.speed = 0f;
+            }
         }
 
-        // automatically find any platform Mario is touching and bypass collision
+        // 3. Dynamic Platform Collision Bypass
         Collider2D[] nearbyColliders = Physics2D.OverlapBoxAll(playerCollider.bounds.center, playerCollider.bounds.size, 0f);
 
         foreach (Collider2D plat in nearbyColliders)
         {
             if (plat.CompareTag("Platform"))
             {
-                //if climbing up or below the top of the platform, ignore collision
+                // Ignore platform collision while moving up or below top edge
                 if (verticalInput > 0 || other.transform.position.y < plat.bounds.max.y)
                 {
                     Physics2D.IgnoreCollision(playerCollider, plat, true);
                 }
-                //once Mario's feet reach above the top edge, re-enable collision so he can stand on it
+                // Solidify floor once Mario's feet are above the top edge
                 else if (other.transform.position.y >= plat.bounds.max.y)
                 {
                     Physics2D.IgnoreCollision(playerCollider, plat, false);
@@ -50,14 +80,22 @@ public class Ladder : MonoBehaviour
 
         Rigidbody2D playerRb = other.GetComponent<Rigidbody2D>();
         Collider2D playerCollider = other.GetComponent<Collider2D>();
+        Animator playerAnim = other.GetComponent<Animator>();
 
-        // Reset gravity when stepping off the ladder
+        // Restore normal gravity scale
         if (playerRb != null)
         {
             playerRb.gravityScale = 1f;
         }
 
-        // Re-enable collision with all platforms when exiting the ladder zone
+        // Reset animator back to default locomotion state
+        if (playerAnim != null)
+        {
+            playerAnim.SetBool("isClimbing", false);
+            playerAnim.speed = 1f; // Restore default playback speed
+        }
+
+        // Re-enable collision with all platforms upon exiting ladder area
         if (playerCollider != null)
         {
             GameObject[] platforms = GameObject.FindGameObjectsWithTag("Platform");
