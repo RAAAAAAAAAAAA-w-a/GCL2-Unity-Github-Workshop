@@ -64,6 +64,7 @@ public class hammerPowerup : MonoBehaviour
         if (other.CompareTag("Hammer"))
         {
             hammerTime();
+            print("hammer");
         }
         else if (other.CompareTag("Barrel") && isHammerActive)
         {

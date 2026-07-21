@@ -216,6 +216,7 @@ GameObject:
   m_Component:
   - component: {fileID: 23672232}
   - component: {fileID: 23672233}
+  - component: {fileID: 23672234}
   m_Layer: 7
   m_Name: 3LevelLadder
   m_TagString: Ladder
@@ -253,7 +254,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d427e1a3d21d784408f0a08f46f5e663, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  climbSpeed: 2
+  climbSpeed: 5
+--- !u!114 &23672234
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 23672231}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d427e1a3d21d784408f0a08f46f5e663, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  climbSpeed: 5
 --- !u!1 &55275131
 GameObject:
   m_ObjectHideFlags: 0
@@ -423,6 +437,7 @@ GameObject:
   - component: {fileID: 77049480}
   - component: {fileID: 77049479}
   - component: {fileID: 77049481}
+  - component: {fileID: 77049482}
   m_Layer: 7
   m_Name: Untitled_85
   m_TagString: Ladder
@@ -558,7 +573,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d427e1a3d21d784408f0a08f46f5e663, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  climbSpeed: 2
+  climbSpeed: 5
+--- !u!114 &77049482
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 77049477}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d427e1a3d21d784408f0a08f46f5e663, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  climbSpeed: 5
 --- !u!1 &97128460
 GameObject:
   m_ObjectHideFlags: 0
@@ -658,6 +686,7 @@ GameObject:
   - component: {fileID: 111405953}
   - component: {fileID: 111405952}
   - component: {fileID: 111405955}
+  - component: {fileID: 111405956}
   m_Layer: 7
   m_Name: Untitled_85
   m_TagString: Ladder
@@ -793,7 +822,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d427e1a3d21d784408f0a08f46f5e663, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  climbSpeed: 2
+  climbSpeed: 5
+--- !u!114 &111405956
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 111405951}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d427e1a3d21d784408f0a08f46f5e663, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  climbSpeed: 5
 --- !u!1 &156900031
 GameObject:
   m_ObjectHideFlags: 0
@@ -893,6 +935,7 @@ GameObject:
   - component: {fileID: 171152721}
   - component: {fileID: 171152720}
   - component: {fileID: 171152722}
+  - component: {fileID: 171152723}
   m_Layer: 7
   m_Name: Untitled_85 (5)
   m_TagString: Ladder
@@ -1028,7 +1071,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d427e1a3d21d784408f0a08f46f5e663, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  climbSpeed: 2
+  climbSpeed: 5
+--- !u!114 &171152723
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 171152718}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d427e1a3d21d784408f0a08f46f5e663, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  climbSpeed: 5
 --- !u!1 &212891180
 GameObject:
   m_ObjectHideFlags: 0
@@ -1215,6 +1271,7 @@ GameObject:
   - component: {fileID: 224181618}
   - component: {fileID: 224181617}
   - component: {fileID: 224181619}
+  - component: {fileID: 224181620}
   m_Layer: 7
   m_Name: Untitled_85 (8)
   m_TagString: Ladder
@@ -1350,7 +1407,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d427e1a3d21d784408f0a08f46f5e663, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  climbSpeed: 2
+  climbSpeed: 5
+--- !u!114 &224181620
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 224181615}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d427e1a3d21d784408f0a08f46f5e663, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  climbSpeed: 5
 --- !u!1 &244039074
 GameObject:
   m_ObjectHideFlags: 0
@@ -2616,6 +2686,7 @@ GameObject:
   - component: {fileID: 450922892}
   - component: {fileID: 450922891}
   - component: {fileID: 450922893}
+  - component: {fileID: 450922894}
   m_Layer: 7
   m_Name: Untitled_85 (7)
   m_TagString: Ladder
@@ -2751,7 +2822,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d427e1a3d21d784408f0a08f46f5e663, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  climbSpeed: 2
+  climbSpeed: 5
+--- !u!114 &450922894
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 450922889}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d427e1a3d21d784408f0a08f46f5e663, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  climbSpeed: 5
 --- !u!1 &480319112
 GameObject:
   m_ObjectHideFlags: 0
@@ -7940,6 +8024,7 @@ GameObject:
   - component: {fileID: 534464709}
   - component: {fileID: 534464708}
   - component: {fileID: 534464710}
+  - component: {fileID: 534464711}
   m_Layer: 7
   m_Name: Untitled_85 (7)
   m_TagString: Ladder
@@ -8075,7 +8160,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d427e1a3d21d784408f0a08f46f5e663, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  climbSpeed: 2
+  climbSpeed: 5
+--- !u!114 &534464711
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 534464706}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d427e1a3d21d784408f0a08f46f5e663, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  climbSpeed: 5
 --- !u!1 &541694976
 GameObject:
   m_ObjectHideFlags: 0
@@ -8234,6 +8332,7 @@ GameObject:
   m_Component:
   - component: {fileID: 545198361}
   - component: {fileID: 545198362}
+  - component: {fileID: 545198363}
   m_Layer: 7
   m_Name: TopLevelLadder (1)
   m_TagString: Ladder
@@ -8271,7 +8370,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d427e1a3d21d784408f0a08f46f5e663, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  climbSpeed: 2
+  climbSpeed: 5
+--- !u!114 &545198363
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 545198360}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d427e1a3d21d784408f0a08f46f5e663, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  climbSpeed: 5
 --- !u!1 &569742899
 GameObject:
   m_ObjectHideFlags: 0
@@ -8401,6 +8513,7 @@ GameObject:
   m_Component:
   - component: {fileID: 591063278}
   - component: {fileID: 591063279}
+  - component: {fileID: 591063280}
   m_Layer: 7
   m_Name: 3LevelLadder (1)
   m_TagString: Ladder
@@ -8438,7 +8551,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d427e1a3d21d784408f0a08f46f5e663, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  climbSpeed: 2
+  climbSpeed: 5
+--- !u!114 &591063280
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 591063277}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d427e1a3d21d784408f0a08f46f5e663, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  climbSpeed: 5
 --- !u!1 &598583653
 GameObject:
   m_ObjectHideFlags: 0
@@ -8992,6 +9118,7 @@ GameObject:
   m_Component:
   - component: {fileID: 648682743}
   - component: {fileID: 648682744}
+  - component: {fileID: 648682745}
   m_Layer: 7
   m_Name: 2LevelLadder
   m_TagString: Ladder
@@ -9028,7 +9155,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d427e1a3d21d784408f0a08f46f5e663, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  climbSpeed: 2
+  climbSpeed: 5
+--- !u!114 &648682745
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 648682742}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d427e1a3d21d784408f0a08f46f5e663, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  climbSpeed: 5
 --- !u!1 &651794306
 GameObject:
   m_ObjectHideFlags: 0
@@ -9436,6 +9576,7 @@ GameObject:
   - component: {fileID: 686542760}
   - component: {fileID: 686542759}
   - component: {fileID: 686542761}
+  - component: {fileID: 686542762}
   m_Layer: 7
   m_Name: Untitled_85 (8)
   m_TagString: Ladder
@@ -9571,7 +9712,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d427e1a3d21d784408f0a08f46f5e663, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  climbSpeed: 2
+  climbSpeed: 5
+--- !u!114 &686542762
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 686542757}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d427e1a3d21d784408f0a08f46f5e663, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  climbSpeed: 5
 --- !u!1001 &694960369
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9839,6 +9993,7 @@ GameObject:
   - component: {fileID: 721181959}
   - component: {fileID: 721181960}
   - component: {fileID: 721181961}
+  - component: {fileID: 721181962}
   m_Layer: 7
   m_Name: LadderExit
   m_TagString: Ladder
@@ -9919,7 +10074,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d427e1a3d21d784408f0a08f46f5e663, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  climbSpeed: 2
+  climbSpeed: 5
+--- !u!114 &721181962
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 721181958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d427e1a3d21d784408f0a08f46f5e663, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  climbSpeed: 5
 --- !u!1 &727755171
 GameObject:
   m_ObjectHideFlags: 0
@@ -10170,6 +10338,7 @@ GameObject:
   - component: {fileID: 745659871}
   - component: {fileID: 745659870}
   - component: {fileID: 745659872}
+  - component: {fileID: 745659873}
   m_Layer: 7
   m_Name: Untitled_85
   m_TagString: Ladder
@@ -10305,7 +10474,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d427e1a3d21d784408f0a08f46f5e663, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  climbSpeed: 2
+  climbSpeed: 5
+--- !u!114 &745659873
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 745659868}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d427e1a3d21d784408f0a08f46f5e663, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  climbSpeed: 5
 --- !u!1 &774795673
 GameObject:
   m_ObjectHideFlags: 0
@@ -11388,6 +11570,7 @@ GameObject:
   - component: {fileID: 892699363}
   - component: {fileID: 892699362}
   - component: {fileID: 892699364}
+  - component: {fileID: 892699365}
   m_Layer: 7
   m_Name: Untitled_85 (5)
   m_TagString: Ladder
@@ -11523,7 +11706,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d427e1a3d21d784408f0a08f46f5e663, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  climbSpeed: 2
+  climbSpeed: 5
+--- !u!114 &892699365
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 892699360}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d427e1a3d21d784408f0a08f46f5e663, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  climbSpeed: 5
 --- !u!1 &896585950
 GameObject:
   m_ObjectHideFlags: 0
@@ -12924,6 +13120,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1362571847}
   - component: {fileID: 1362571848}
+  - component: {fileID: 1362571849}
   m_Layer: 7
   m_Name: 2LevelLadder (2)
   m_TagString: Ladder
@@ -12962,7 +13159,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d427e1a3d21d784408f0a08f46f5e663, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  climbSpeed: 2
+  climbSpeed: 5
+--- !u!114 &1362571849
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1362571846}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d427e1a3d21d784408f0a08f46f5e663, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  climbSpeed: 5
 --- !u!1 &1370542481
 GameObject:
   m_ObjectHideFlags: 0
@@ -13006,6 +13216,7 @@ GameObject:
   - component: {fileID: 1397503960}
   - component: {fileID: 1397503959}
   - component: {fileID: 1397503961}
+  - component: {fileID: 1397503962}
   m_Layer: 7
   m_Name: Untitled_85 (9)
   m_TagString: Ladder
@@ -13141,7 +13352,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d427e1a3d21d784408f0a08f46f5e663, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  climbSpeed: 2
+  climbSpeed: 5
+--- !u!114 &1397503962
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1397503957}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d427e1a3d21d784408f0a08f46f5e663, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  climbSpeed: 5
 --- !u!1 &1409129060
 GameObject:
   m_ObjectHideFlags: 0
@@ -13897,6 +14121,7 @@ GameObject:
   - component: {fileID: 1531670459}
   - component: {fileID: 1531670458}
   - component: {fileID: 1531670460}
+  - component: {fileID: 1531670461}
   m_Layer: 7
   m_Name: Untitled_85 (6)
   m_TagString: Ladder
@@ -14032,7 +14257,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d427e1a3d21d784408f0a08f46f5e663, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  climbSpeed: 2
+  climbSpeed: 5
+--- !u!114 &1531670461
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1531670456}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d427e1a3d21d784408f0a08f46f5e663, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  climbSpeed: 5
 --- !u!1001 &1546801863
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14294,6 +14532,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1660829270}
   - component: {fileID: 1660829271}
+  - component: {fileID: 1660829272}
   m_Layer: 7
   m_Name: 2LevelLadder (1)
   m_TagString: Ladder
@@ -14330,7 +14569,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d427e1a3d21d784408f0a08f46f5e663, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  climbSpeed: 2
+  climbSpeed: 5
+--- !u!114 &1660829272
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1660829269}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d427e1a3d21d784408f0a08f46f5e663, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  climbSpeed: 5
 --- !u!1 &1687617921
 GameObject:
   m_ObjectHideFlags: 0
@@ -14404,7 +14656,7 @@ Transform:
   m_GameObject: {fileID: 1687617921}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 0.015106055, w: 0.999886}
-  m_LocalPosition: {x: -0.54, y: -6.84, z: 1.0986015}
+  m_LocalPosition: {x: -0.46, y: -6.84, z: 1.0986015}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -14520,6 +14772,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1702030501}
   - component: {fileID: 1702030502}
+  - component: {fileID: 1702030503}
   m_Layer: 7
   m_Name: TopLevelLadder
   m_TagString: Ladder
@@ -14557,7 +14810,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d427e1a3d21d784408f0a08f46f5e663, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  climbSpeed: 2
+  climbSpeed: 5
+--- !u!114 &1702030503
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1702030500}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d427e1a3d21d784408f0a08f46f5e663, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  climbSpeed: 5
 --- !u!1 &1734071285
 GameObject:
   m_ObjectHideFlags: 0
@@ -14837,6 +15103,7 @@ GameObject:
   - component: {fileID: 1826319250}
   - component: {fileID: 1826319249}
   - component: {fileID: 1826319251}
+  - component: {fileID: 1826319252}
   m_Layer: 7
   m_Name: Untitled_85 (8)
   m_TagString: Ladder
@@ -14972,7 +15239,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d427e1a3d21d784408f0a08f46f5e663, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  climbSpeed: 2
+  climbSpeed: 5
+--- !u!114 &1826319252
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1826319247}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d427e1a3d21d784408f0a08f46f5e663, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  climbSpeed: 5
 --- !u!1 &1868066973
 GameObject:
   m_ObjectHideFlags: 0
@@ -15295,9 +15575,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1117060289
-  m_SortingLayer: 4
-  m_SortingOrder: 50
+  m_SortingLayerID: -51985547
+  m_SortingLayer: 1
+  m_SortingOrder: 0
   m_Sprite: {fileID: 21300098, guid: 2f233cf67f812ee4c8152398ed053a35, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -15634,6 +15914,7 @@ GameObject:
   - component: {fileID: 1977665145}
   - component: {fileID: 1977665144}
   - component: {fileID: 1977665146}
+  - component: {fileID: 1977665147}
   m_Layer: 7
   m_Name: Untitled_85 (6)
   m_TagString: Ladder
@@ -15769,7 +16050,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d427e1a3d21d784408f0a08f46f5e663, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  climbSpeed: 2
+  climbSpeed: 5
+--- !u!114 &1977665147
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1977665142}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d427e1a3d21d784408f0a08f46f5e663, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  climbSpeed: 5
 --- !u!1 &1991013571
 GameObject:
   m_ObjectHideFlags: 0
@@ -15838,7 +16132,7 @@ Transform:
   m_GameObject: {fileID: 2003923403}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0.023252886, w: 0.99972963}
-  m_LocalPosition: {x: -1.0901815, y: -9.124952, z: 1.0986015}
+  m_LocalPosition: {x: -1.26, y: -9.12, z: 1.0986015}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -16001,8 +16295,6 @@ GameObject:
   - component: {fileID: 2045704350}
   - component: {fileID: 2045704352}
   - component: {fileID: 2045704351}
-  - component: {fileID: 2045704353}
-  - component: {fileID: 2045704355}
   m_Layer: 7
   m_Name: Untitled_85 (5)
   m_TagString: Ladder
@@ -16126,32 +16418,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &2045704353
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2045704349}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d427e1a3d21d784408f0a08f46f5e663, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  climbSpeed: 2
---- !u!114 &2045704355
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2045704349}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d427e1a3d21d784408f0a08f46f5e663, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  climbSpeed: 5
 --- !u!1 &2053826686
 GameObject:
   m_ObjectHideFlags: 0
@@ -16205,6 +16471,7 @@ GameObject:
   - component: {fileID: 2063764444}
   - component: {fileID: 2063764443}
   - component: {fileID: 2063764445}
+  - component: {fileID: 2063764446}
   m_Layer: 7
   m_Name: Untitled_85 (10)
   m_TagString: Ladder
@@ -16340,7 +16607,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d427e1a3d21d784408f0a08f46f5e663, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  climbSpeed: 2
+  climbSpeed: 5
+--- !u!114 &2063764446
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2063764441}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d427e1a3d21d784408f0a08f46f5e663, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  climbSpeed: 5
 --- !u!4 &2070791880 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6641317856148110700, guid: 7cf7102d32485ea439d5a969aeb8d8b8, type: 3}
@@ -16439,6 +16719,14 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2248590287405721813, guid: ae9158106063d7041afd5e95238fb568, type: 3}
+      propertyPath: m_SortingLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2248590287405721813, guid: ae9158106063d7041afd5e95238fb568, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -51985547
+      objectReference: {fileID: 0}
     - target: {fileID: 3881282964905218064, guid: ae9158106063d7041afd5e95238fb568, type: 3}
       propertyPath: m_Name
       value: Normal Barrel
@@ -16461,7 +16749,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6958998479893346735, guid: ae9158106063d7041afd5e95238fb568, type: 3}
       propertyPath: m_LocalScale.x
-      value: 4
+      value: 3.1816862
       objectReference: {fileID: 0}
     - target: {fileID: 6958998479893346735, guid: ae9158106063d7041afd5e95238fb568, type: 3}
       propertyPath: m_LocalScale.y
@@ -16473,11 +16761,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6958998479893346735, guid: ae9158106063d7041afd5e95238fb568, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.23
+      value: -0.3291
       objectReference: {fileID: 0}
     - target: {fileID: 6958998479893346735, guid: ae9158106063d7041afd5e95238fb568, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.08
+      value: 2.98
       objectReference: {fileID: 0}
     - target: {fileID: 6958998479893346735, guid: ae9158106063d7041afd5e95238fb568, type: 3}
       propertyPath: m_LocalPosition.z
@@ -16511,7 +16799,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6344125991524575150, guid: ae9158106063d7041afd5e95238fb568, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
