@@ -9,7 +9,7 @@ public class CutsceneChanger : MonoBehaviour
 
     void OnEnable()
     {
-        // Subscribe to the video finished event
+        // to run automatically after video finish
         if (videoPlayer != null)
         {
             videoPlayer.loopPointReached += OnVideoFinished;
