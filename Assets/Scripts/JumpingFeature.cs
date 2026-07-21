@@ -9,7 +9,7 @@ public class JumpingFeature : MonoBehaviour
     [SerializeField] private float jumpForce = 15f;
     [SerializeField] private Sprite newSprite;
 
-    // Drag the upper platform's BoxCollider2D into this field in Unity
+    
     [SerializeField] private Collider2D upperPlatform;
 
     [SerializeField] private float ignoreCollisionTime = 1f;
@@ -34,22 +34,22 @@ public class JumpingFeature : MonoBehaviour
 
         if (playerRb != null)
         {
-            // Give the player an upward jump boost
+            //gives the player an upward jump boost
             playerRb.linearVelocity = new Vector2(
                 playerRb.linearVelocity.x,
                 jumpForce
             );
 
-            // Change the jumping machine's sprite
+            //changes the jumping machine's sprite
             if (newSprite != null)
             {
                 spriteRenderer.sprite = newSprite;
             }
 
-            // Get the player's collider
+            
             Collider2D playerCollider = other.GetComponent<Collider2D>();
 
-            // Let the player pass through the upper platform temporarily
+            //allows the player to pass through the upper platform temporarily
             if (playerCollider != null && upperPlatform != null)
             {
                 Physics2D.IgnoreCollision(
