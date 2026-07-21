@@ -1,4 +1,3 @@
-using System.Security.Cryptography;
 using UnityEngine;
 
 [RequireComponent(typeof(AudioSource))]
@@ -10,19 +9,13 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float climbSpeed = 3f;
     [SerializeField] public float jumpBoost = 1.5f;
 
-
     [Header("Ground Check")]
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private Transform groundCheck;
     [SerializeField] private float groundCheckRadius = 0.2f;
 
-    [Header("Audio")]
-    //[SerializeField] private AudioClip jumpClip;
-
     // Public so other scripts can access it
     public Rigidbody2D rb { get; private set; }
-
-
     public bool IsFacingRight => isFacingRight;
 
     private Animator anim;
@@ -38,7 +31,6 @@ public class PlayerController : MonoBehaviour
 
     // Respawn position
     private Vector3 respawnPosition;
-
     private hammerPowerup hammerTime;
 
     void Awake()
@@ -57,36 +49,34 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
-        // Set initial respawn position to player's starting position
         respawnPosition = transform.position;
     }
 
     void Update()
-    {// Check if player is on the ground
-        isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
+    {
+        // Ground Check
+        if (groundCheck != null)
+        {
+            isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
+        }
 
-        // Reset jumping when landed
         if (isGrounded)
         {
             isJumping = false;
         }
-        // Horizontal movement
+
+        // Horizontal Movement
         if (canMove)
         {
             moveInput = Input.GetAxisRaw("Horizontal");
             rb.linearVelocity = new Vector2(moveInput * moveSpeed, rb.linearVelocity.y);
         }
-        // Debug.Log("Velocity = " + rb.linearVelocity);
-        // Debug.Log("Grounded: " + isGrounded);
 
-
-        //climbing
+        // Ladder Climbing
         if (canClimb && (hammerTime == null || !hammerTime.isHammerActive))
         {
             climbInput = Input.GetAxisRaw("Vertical");
-
             rb.gravityScale = 0;
-
             rb.linearVelocity = new Vector2(moveInput * moveSpeed, climbInput * climbSpeed);
         }
         else
@@ -94,43 +84,25 @@ public class PlayerController : MonoBehaviour
             rb.gravityScale = 1;
         }
 
-
-
-        // Flip sprite
-        if (moveInput < 0)
-
+        // Clean Sprite Flipping Logic
+        if (moveInput > 0)
         {
-            transform.localScale = new Vector3(1f, 1f, 1f);
+            transform.localScale = new Vector3(-1f, 1f, 1f); // Flips sprite to face Right
+            isFacingRight = true;
+        }
+        else if (moveInput < 0)
+        {
+            transform.localScale = new Vector3(1f, 1f, 1f);  // Keeps default sprite facing Left
+            isFacingRight = false;
         }
 
-        else if (moveInput > 0)
-        {
-            transform.localScale = new Vector3(-1f, 1f, 1f);
-        }
-
-
-        // Flip player sprite to movement direction
-
-        if (moveInput > 0 && !isFacingRight)
-        {
-            Flip();
-        }
-
-        else if (moveInput < 0 && isFacingRight)
-        {
-            Flip();
-        }
-
-
-        // Jump if grounded inactive
+        // Jump Input
         if (Input.GetButtonDown("Jump") && isGrounded && (hammerTime == null || !hammerTime.isHammerActive))
         {
             Jump();
         }
 
-
         UpdateAnimations();
-
     }
 
     private void Jump()
@@ -142,10 +114,6 @@ public class PlayerController : MonoBehaviour
         {
             anim.SetBool("isJumping", true);
         }
-        //if (jumpClip != null && audioSource != null)
-        //{
-        //    audioSource.PlayOneShot(jumpClip);
-        //}
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -156,7 +124,6 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    //enables climbing when entering ladder
     private void OnTriggerExit2D(Collider2D other)
     {
         if (other.CompareTag("Ladder"))
@@ -164,7 +131,6 @@ public class PlayerController : MonoBehaviour
             canClimb = false;
         }
     }
-
 
     private void Flip()
     {
@@ -174,13 +140,9 @@ public class PlayerController : MonoBehaviour
         transform.localScale = scale;
     }
 
-    //update player aniamtions
     private void UpdateAnimations()
     {
-        if (anim == null)
-        {
-            return;
-        }
+        if (anim == null) return;
 
         bool isRunning = Mathf.Abs(moveInput) > 0.1f && isGrounded;
         anim.SetBool("isRunning", isRunning);
