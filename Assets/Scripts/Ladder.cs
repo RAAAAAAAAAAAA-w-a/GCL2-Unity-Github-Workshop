@@ -2,89 +2,73 @@ using UnityEngine;
 
 public class Ladder : MonoBehaviour
 {
-    [Header("Platform Above Ladder")]
-    [SerializeField] private Collider2D platformCollider;
-
-    private Collider2D playerCollider;
-    private bool ignoringPlatform = false;
+    [Header("Climb Settings")]
+    public float climbSpeed = 5f;
 
     private void OnTriggerStay2D(Collider2D other)
     {
-        if (!other.CompareTag("Player"))
-            return;
+        if (!other.CompareTag("Player")) return;
 
-        PlayerController player = other.GetComponent<PlayerController>();
+        Rigidbody2D playerRb = other.GetComponent<Rigidbody2D>();
+        Collider2D playerCollider = other.GetComponent<Collider2D>();
 
-        if (player == null)
-            return;
+        if (playerRb == null || playerCollider == null) return;
 
-        playerCollider = other.GetComponent<Collider2D>();
+        float verticalInput = Input.GetAxisRaw("Vertical");
 
-        // Drop down through platform
-        if (player.isGrounded && Input.GetAxisRaw("Vertical") < 0)
+        // 1. Start climbing when W/S or Up/Down arrows are pressed
+        if (Mathf.Abs(verticalInput) > 0.1f)
         {
-            IgnorePlatform();
+            playerRb.gravityScale = 0f; // Turn off gravity while climbing
+            playerRb.linearVelocity = new Vector2(playerRb.linearVelocity.x, verticalInput * climbSpeed);
         }
 
-        // Climb up through platform
-        if (!player.isGrounded && player.canClimb && player.climbInput > 0)
+        // 2. Automatically find any platform Mario is touching and bypass collision
+        Collider2D[] nearbyColliders = Physics2D.OverlapBoxAll(playerCollider.bounds.center, playerCollider.bounds.size, 0f);
+
+        foreach (Collider2D plat in nearbyColliders)
         {
-            IgnorePlatform();
-        }
-
-        // Turn collision back on once player is above platform
-        if (ignoringPlatform &&
-            player.transform.position.y > platformCollider.bounds.max.y)
-        {
-            EnablePlatform();
-        }
-    }
-
-    private void IgnorePlatform()
-    {
-        if (!ignoringPlatform &&
-            playerCollider != null &&
-            platformCollider != null)
-        {
-            Physics2D.IgnoreCollision( playerCollider, platformCollider,  true
-            );
-
-            ignoringPlatform = true;
-        }
-    }
-
-    private void EnablePlatform()
-    {
-        if (playerCollider != null &&
-            platformCollider != null)
-        {
-            Physics2D.IgnoreCollision(
-                playerCollider,
-                platformCollider,
-                false
-            );
-
-            ignoringPlatform = false;
+            if (plat.CompareTag("Platform"))
+            {
+                // If climbing up or below the top of the platform, ignore collision
+                if (verticalInput > 0 || other.transform.position.y < plat.bounds.max.y)
+                {
+                    Physics2D.IgnoreCollision(playerCollider, plat, true);
+                }
+                // Once Mario's feet reach above the top edge, re-enable collision so he can stand on it
+                else if (other.transform.position.y >= plat.bounds.max.y)
+                {
+                    Physics2D.IgnoreCollision(playerCollider, plat, false);
+                }
+            }
         }
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (!other.CompareTag("Player"))
-            return;
+        if (!other.CompareTag("Player")) return;
 
-        Collider2D exitingPlayer = other.GetComponent<Collider2D>();
+        Rigidbody2D playerRb = other.GetComponent<Rigidbody2D>();
+        Collider2D playerCollider = other.GetComponent<Collider2D>();
 
-        if (exitingPlayer != null && platformCollider != null)
+        // Reset gravity when stepping off the ladder
+        if (playerRb != null)
         {
-            Physics2D.IgnoreCollision(
-                exitingPlayer,
-                platformCollider,
-                false
-            );
+            playerRb.gravityScale = 1f;
         }
 
-        ignoringPlatform = false;
-        playerCollider = null;
+        // Re-enable collision with all platforms when exiting the ladder zone
+        if (playerCollider != null)
+        {
+            GameObject[] platforms = GameObject.FindGameObjectsWithTag("Platform");
+            foreach (GameObject p in platforms)
+            {
+                Collider2D pCol = p.GetComponent<Collider2D>();
+                if (pCol != null)
+                {
+                    Physics2D.IgnoreCollision(playerCollider, pCol, false);
+                }
+            }
+        }
     }
 }
