@@ -6,7 +6,7 @@ public class PlayerController : MonoBehaviour
 {
     [Header("Movement Settings")]
     [SerializeField] private float moveSpeed = 5f;
-    [SerializeField] public float jumpForce = 10f;
+    [SerializeField] public float jumpForce = 4f;
     [SerializeField] private float climbSpeed = 3f;
     [SerializeField] public float jumpBoost = 1.5f;
 
@@ -34,6 +34,7 @@ public class PlayerController : MonoBehaviour
     private bool isGrounded;
     private bool isJumping;
     private bool canClimb = false;
+    private bool isClimbing;
 
     private hammerPowerup hammer;
 
@@ -71,6 +72,7 @@ public class PlayerController : MonoBehaviour
         if (isGrounded)
         {
             isJumping = false;
+            isClimbing = false;
         }
         // Horizontal movement
         if (canMove)
@@ -80,20 +82,23 @@ public class PlayerController : MonoBehaviour
         }
         Debug.Log("Velocity = " + rb.linearVelocity);
         Debug.Log("Grounded: " + isGrounded);
-        if (canClimb & !isGrounded)
+
+
+        if (canClimb)
         {
             rb.gravityScale = 0;
 
-            float climbInput = Input.GetAxisRaw("Vertical");
-            rb.linearVelocity = new Vector2(moveInput * moveSpeed, climbInput * climbSpeed);
-        }
-        
-        if(canClimb & isGrounded)
-        {
-            rb.gravityScale = 0;
+            rb.linearVelocity = new Vector2(rb.linearVelocity.y, climbSpeed);
 
-            float climbInput = Input.GetAxisRaw("Vertical");
-            rb.linearVelocity = new Vector2(moveInput * 0, climbInput * climbSpeed);
+            if (!isGrounded)
+            {
+                isClimbing = true;
+            }
+
+            if (isGrounded)
+            {
+                isClimbing = false;
+            }
 
         }
 
@@ -159,6 +164,11 @@ public class PlayerController : MonoBehaviour
         {
             print("Climbing");
             canClimb = true;
+            
+            if (!isGrounded)
+            {
+                canMove = false;
+            }
         }
 
         else
