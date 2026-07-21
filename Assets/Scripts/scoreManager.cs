@@ -24,6 +24,8 @@ public class scoreManager : MonoBehaviour
 
     void Start()
     {
+        topScore = PlayerPrefs.GetInt("TopScore", 0);
+
         scoreText.text = score.ToString("000000");
         topScoreText.text = "TOP-" + topScore.ToString("000000");
     }
@@ -33,6 +35,14 @@ public class scoreManager : MonoBehaviour
         score += points;
         scoreText.text = score.ToString("000000");
 
+        if (score > topScore)
+        {
+            topScore = score;
+            topScoreText.text = "TOP-" + topScore.ToString("000000");
+
+            PlayerPrefs.SetInt("TopScore", topScore);
+            PlayerPrefs.Save();
+        }
     }
 
     void Update()
@@ -40,6 +50,8 @@ public class scoreManager : MonoBehaviour
         if (topScore < score)
         {
             topScore = score;
+            topScoreText.text = "TOP-" + topScore.ToString("000000");
+
             PlayerPrefs.SetInt("TopScore", topScore);
             PlayerPrefs.Save();
         }
