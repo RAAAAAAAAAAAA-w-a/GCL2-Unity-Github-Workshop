@@ -6,6 +6,9 @@ public class Barrel : MonoBehaviour
 {
     private new Rigidbody2D rigidbody;
     public float speed = 1f;
+    private PlayerController player;
+    private hammerPowerup hammerTime;
+
 
     private void Awake()
     {
@@ -19,35 +22,13 @@ public class Barrel : MonoBehaviour
             rigidbody.AddForce(collision.transform.right * speed, ForceMode2D.Impulse);
         }
     }
-   /* protected Rigidbody2D rb;
-    public float speed = 3f;
 
-    protected virtual void Start()
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        rb = GetComponent<Rigidbody2D>();
-    }
-
-    protected virtual void OnCollisionEnter2D(Collision2D collision)
-    {
-        // Push barrels in the direction the platform is facing.
-        if (collision.gameObject.layer == LayerMask.NameToLayer("Ground"))
+        if (other.CompareTag("Barrel") && !hammerTime.isHammerActive)
         {
-            BarrelPath path = collision.gameObject.GetComponent<BarrelPath>();
-
-            if (path != null)
-            {
-                Vector2 direction = path.moveRight ? Vector2.right : Vector2.left;
-                rb.AddForce(direction * speed, ForceMode2D.Impulse);
-            }
-            return;
-        }
-
-        // Restart the scene if the player is hit.
-        if (collision.gameObject.TryGetComponent(out PlayerController p) && !hammer.isHammerActive)
-        {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            SceneManager.LoadScene("Opening Scene");
         }
     }
-   */
 
 }
