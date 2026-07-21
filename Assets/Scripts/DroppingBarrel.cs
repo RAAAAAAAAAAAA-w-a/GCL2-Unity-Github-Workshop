@@ -3,8 +3,8 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class DroppingBarrel : Barrel
-{
-
+{ }
+    /*
     protected Collider2D collider;
 
     protected override void Start()
@@ -29,4 +29,4 @@ public class DroppingBarrel : Barrel
         collider.isTrigger = false;
     }
 
-}
+}*/
