@@ -36,9 +36,6 @@ public class PlayerController : MonoBehaviour
     public bool canClimb = false;
     public float climbInput;
 
-    private hammerPowerup hammer;
-    private Ladder ladder;
-
     // Respawn position
     private Vector3 respawnPosition;
 
@@ -49,10 +46,13 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         audioSource = GetComponent<AudioSource>();
+
         if (audioSource != null)
         {
             audioSource.playOnAwake = false;
         }
+
+        hammerTime = GetComponent<hammerPowerup>();
     }
 
     void Start()
@@ -81,16 +81,13 @@ public class PlayerController : MonoBehaviour
 
 
         //climbing
-        if (canClimb)
+        if (canClimb && (hammerTime == null || !hammerTime.isHammerActive))
         {
             climbInput = Input.GetAxisRaw("Vertical");
-            rb.gravityScale = 0;
-            rb.linearVelocity = new Vector2(rb.linearVelocity.x, climbInput * climbSpeed);
 
-            if (!isGrounded)
-            {
-                rb.linearVelocity = new Vector2(0f, climbInput * climbSpeed);
-            }
+            rb.gravityScale = 0;
+
+            rb.linearVelocity = new Vector2(moveInput * moveSpeed, climbInput * climbSpeed);
         }
         else
         {
@@ -134,7 +131,6 @@ public class PlayerController : MonoBehaviour
 
         UpdateAnimations();
 
-
     }
 
     private void Jump()
@@ -146,7 +142,6 @@ public class PlayerController : MonoBehaviour
         {
             anim.SetBool("isJumping", true);
         }
-
         //if (jumpClip != null && audioSource != null)
         //{
         //    audioSource.PlayOneShot(jumpClip);
@@ -155,17 +150,15 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Ladder") && !hammerTime.isHammerActive)
+        if (other.CompareTag("Ladder") && (hammerTime == null || !hammerTime.isHammerActive))
         {
             canClimb = true;
-
         }
     }
 
     //enables climbing when entering ladder
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.CompareTag("Ladder") && !hammer.isHammerActive)
         if (other.CompareTag("Ladder"))
         {
             canClimb = false;
@@ -184,7 +177,10 @@ public class PlayerController : MonoBehaviour
     //update player aniamtions
     private void UpdateAnimations()
     {
-        if (anim == null) return;
+        if (anim == null)
+        {
+            return;
+        }
 
         bool isRunning = Mathf.Abs(moveInput) > 0.1f && isGrounded;
         anim.SetBool("isRunning", isRunning);
