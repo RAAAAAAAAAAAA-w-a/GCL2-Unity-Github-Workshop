@@ -1,4 +1,3 @@
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class Ladder : MonoBehaviour
@@ -7,8 +6,7 @@ public class Ladder : MonoBehaviour
     [SerializeField] private Collider2D platformCollider;
 
     private Collider2D playerCollider;
-    public bool ignorePlatform = false;
-
+    private bool ignoringPlatform = false;
 
     private void OnTriggerStay2D(Collider2D other)
     {
@@ -22,29 +20,74 @@ public class Ladder : MonoBehaviour
 
         playerCollider = other.GetComponent<Collider2D>();
 
-
-        // Player is standing on the platform and presses DOWN
+        // Drop down through platform
         if (player.isGrounded && Input.GetAxisRaw("Vertical") < 0)
         {
             IgnorePlatform();
         }
 
-
-        // Player is climbing UP and needs to pass through the platform
+        // Climb up through platform
         if (!player.isGrounded && player.canClimb && player.climbInput > 0)
         {
             IgnorePlatform();
         }
-    }
 
+        // Turn collision back on once player is above platform
+        if (ignoringPlatform &&
+            player.transform.position.y > platformCollider.bounds.max.y)
+        {
+            EnablePlatform();
+        }
+    }
 
     private void IgnorePlatform()
     {
-        if (!ignorePlatform && playerCollider != null && platformCollider != null)
+        if (!ignoringPlatform &&
+            playerCollider != null &&
+            platformCollider != null)
         {
-            Physics2D.IgnoreCollision( playerCollider, platformCollider, true);
+            Physics2D.IgnoreCollision(
+                playerCollider,
+                platformCollider,
+                true
+            );
 
-            ignorePlatform = true;
+            ignoringPlatform = true;
         }
+    }
+
+    private void EnablePlatform()
+    {
+        if (playerCollider != null &&
+            platformCollider != null)
+        {
+            Physics2D.IgnoreCollision(
+                playerCollider,
+                platformCollider,
+                false
+            );
+
+            ignoringPlatform = false;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (!other.CompareTag("Player"))
+            return;
+
+        Collider2D exitingPlayer = other.GetComponent<Collider2D>();
+
+        if (exitingPlayer != null && platformCollider != null)
+        {
+            Physics2D.IgnoreCollision(
+                exitingPlayer,
+                platformCollider,
+                false
+            );
+        }
+
+        ignoringPlatform = false;
+        playerCollider = null;
     }
 }
