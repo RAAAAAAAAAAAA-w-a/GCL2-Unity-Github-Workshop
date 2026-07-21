@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 
 public class Barrel : MonoBehaviour
 {
-
+    private hammerPowerup hammer;
     protected Rigidbody2D rb;
     public float speed = 3f;
 
@@ -29,7 +29,7 @@ public class Barrel : MonoBehaviour
         }
 
         // Restart the scene if the player is hit.
-        if (collision.gameObject.TryGetComponent(out PlayerController p))
+        if (collision.gameObject.TryGetComponent(out PlayerController p) && !hammer.isHammerActive)
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
