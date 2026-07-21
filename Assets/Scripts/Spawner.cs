@@ -6,7 +6,7 @@ public class Spawner : MonoBehaviour
     public float minTime = 5f;
     public float maxTime = 8f;
 
-    public int maxBarrels = 5;
+ 
 
     private void Start()
     {
@@ -15,8 +15,7 @@ public class Spawner : MonoBehaviour
 
     private void Spawn()
     {
-        // Count all barrels currently in the scene
-        if (GameObject.FindGameObjectsWithTag("Barrel").Length < maxBarrels)
+     
         {
             Instantiate(prefab, transform.position, Quaternion.identity);
         }
